@@ -1,0 +1,21 @@
+.loading-modal .ant-modal-body{
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .ant-spin-nested-loading{
+      width: 250px;
+      font-size: 50px;
+      display: flex !important;
+      justify-content: center;
+      .ant-spin-dot{
+        margin-top:-75px !important;
+        position:static !important;
+      }
+      .ant-spin-text{
+        padding-top:50px !important;
+        font-size: 22px !important;
+      }
+    }
+}

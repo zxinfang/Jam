@@ -1,0 +1,463 @@
+.contentarea{
+  padding: 10px;
+
+  .title{
+    width: 98%;
+    margin: auto;
+  }
+  .button-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 99%;
+    margin:auto ;
+
+    .tableitem{
+      margin: 10px;
+    }
+  }
+
+}
+
+
+
+// .home {
+//   width: 100%;
+//   display: flex;
+//   justify-content: center;
+
+//   .ham{
+//     width: 15%;
+//     background-color: #0538FC;
+//     height: 100vh;
+    
+//     a{
+//       display: block;
+//       padding: 10px 15px;
+//       text-decoration: none;
+//       background-color: transparent;
+//       color: white;
+//       font-size: 16px;
+//     }
+
+//     .title{
+//       padding: 5px 0;
+//       height: 17vh;
+//     }
+
+//     .titleitems{
+//       background-color:  transparent;
+//       display: flex;
+//       flex-direction: column;
+//       align-items: stretch;
+//       height: 37vh;
+//       justify-content: space-evenly;
+
+//       .items{
+        
+//         i{
+//           display: flex;
+//           align-items: center;
+//           color: #ffffff;
+//           justify-content:space-evenly;
+//         }
+//         &:hover{
+//           color: #0538FC;
+//           background-color: #ffffff;
+//           border-radius: 10px 10px 10px 10px;
+//           overflow: hidden;
+//         }
+//       }
+//     }
+
+//   }
+
+//   .contentarea{
+//     width: 85%;
+//     background-color: #EAEAEA;
+//     color: #ffffff;
+//     height: 100vh;
+
+//     .header{
+//       width: 94%;
+//       font-size: small;
+//       margin:auto;
+//       display:flex;
+//       justify-content: space-between;
+  
+//       .header-left{
+//         display: flex;
+
+//         a{
+//           padding: 5px;
+//         }
+
+//         p{
+//           font-size: 18px;
+//           margin-left: 10px;
+//           color: #111;
+//           font-weight: 800;
+//         }
+//         &:visited,&:link{
+//           text-decoration: none;
+//           color:rgb(106, 118, 130);
+//         }
+//       }
+      
+//       .header-right{
+//         display: flex;
+
+//         a{
+//           color: #111;
+//         }
+
+//         ul{
+//           display: flex;
+//           list-style: none;
+//           align-items: center;
+//         }
+
+//         li{
+//           margin: 0 10px;
+//         }
+//       }     
+//     }
+
+//     .nav{
+//       width: 94%;
+//       margin: auto;
+//       display: flex;
+//       background-color: #EAEAEA;
+//       align-items: center;
+//       justify-content: space-between;
+//       padding-bottom: 10px;
+//     }
+    
+//     .nav-menu{
+//       display:flex;
+//       justify-content: flex-start;
+
+//       ul{
+//         list-style: none;
+//         display: flex;
+//         margin: 0;
+//         padding: 0;
+
+//         li{
+//           margin: 0 20px;
+
+//           &:hover a{
+//             display: flex;
+//             box-shadow: inset 0 -2px 0 0 #0538FC;
+//             transition: ease-in-out 0.2s ;
+//           }
+
+//           .hov{
+//             display: flex;
+//             box-shadow: inset 0 -2px 0 0 #0538FC;
+//             transition: ease-in-out 0.2s ;
+//           }
+
+//           a{
+//             &:visited, &:link{
+//               text-decoration: none;
+//               color: #111;
+//               display: flex;
+//               height: 57px;
+//               padding: 5px 0;
+//               align-items: center;
+//             }
+//           }
+
+//         }
+//       }
+//     }
+//     .sortbar{
+
+//       i{
+//         margin: 10px;
+//         color: #111;
+//       }
+
+//       a{
+//         padding: 4px 1px;
+//         border-radius: 13px;
+//         background-color: #ffffff;
+
+//         &:hover{
+//           background-color: #a1abd3;
+//         }
+//       }
+//     }
+//     .select-table{
+//       // width: 93%;
+//       // margin: auto;
+//       // color: #111;
+//       // background-color: #ffffff;
+
+//       // th{
+//       //   padding: 8px;
+//       //   text-align: left;
+//       //   background-color: #EAEAEA;
+//       // }
+
+//       // tr{
+//       //   // border: 1px solid #111!important;
+//       //   border-radius: 10px;
+
+//       //   &:hover{
+//       //     background-color: #EAEAEA;
+//       //   }
+//       // }
+
+//       // td{
+//       //   padding: 8px;
+//       // }
+//       .actions{
+//         display: flex;
+//         justify-content: space-evenly;
+//       }
+//     }
+//   }
+
+//   .login {
+//     width: 400px;
+//     border: 1px solid gray;
+//     border-radius: 10px;
+//     padding:0px 18px;
+//     margin: 20px;
+//     color: white;
+//     background-color:#375cb7 ;
+
+//     .login-form{
+//       padding-top: 25px;
+
+//       span{
+//         color: white;
+//         border: 0px;
+//         font-size: 22px;
+
+//         .ant-input-group-addon{
+//           padding-left: 0px;
+//         }
+//       }
+
+//       .class{
+//         display: flex;
+//       }
+
+//       .select{
+//         span{
+//           color:black;
+//           font-size: 16px;
+//         }
+//       }
+
+//       .label{
+//         min-width: 66px;
+//         color: white;
+//         font-size: 22px;
+//         margin-right: 11px;
+//       }
+
+//       input{
+//         border-radius: 5px;
+//       }
+
+//       Button{
+//         line-height: 22px;
+//         background-color: aliceblue;
+
+//         span{
+//           color: black;
+//         }
+//       }
+//     }
+//     .login-register{
+//       width: 100%;
+//       height: 50px;
+//       display: flex;
+//       justify-content: center;
+//       align-items: top;
+//       font-size: 18px;
+//       cursor: pointer;
+//     }
+//     .login-register:hover{
+//       color: #4899f6;
+//     }
+
+//   }
+
+//   // .slider {
+//   //   width        : 100%;
+//   //   height       : 500px;
+//   //   margin-bottom: 50px;
+
+//   //   div {
+//   //     width : 100%;
+//   //     height: 100%;
+
+//   //     img {
+//   //       width          : 100%;
+//   //       height         : 100%;
+//   //       object-fit     : cover;
+//   //       object-position: center;
+//   //     }
+//   //   }
+//   // }
+
+//   // // .slick-track,
+//   // // .slick-list,
+//   // // .slick-slide,
+//   // .slick-slide div,
+//   // .slick-slide div div {
+//   //   width  : 100% !important;
+//   //   height : 500px;
+//   //   outline: 0px !important;
+//   // }
+
+//   // .slick-dots {
+//   //   bottom: 40px !important;
+//   // }
+
+//   // .content {
+
+//   //   .block {
+
+//   //     .titleBlock {
+//   //       width        : 100%;
+//   //       font-size    : 36px;
+//   //       font-weight  : bold;
+//   //       text-align   : center;
+//   //       margin-bottom: 40px;
+//   //     }
+
+//   //     .btn {
+//   //       display         : block;
+//   //       background-color: #DFD8CE;
+//   //       color           : black;
+//   //       width           : 140px;
+//   //       height          : 55px;
+//   //       line-height     : 55px;
+//   //       text-align      : center;
+//   //       margin          : 50px auto 120px auto;
+//   //       text-decoration : none;
+
+//   //     }
+
+//   //     .btn:hover {
+//   //       background-color: #223383;
+//   //       color           : white;
+//   //     }
+
+//   //     .serveBlock {
+//   //       position: relative;
+//   //       cursor  : pointer;
+
+//   //       .serveImg {
+//   //         width              : 100%;
+//   //         height             : 100%;
+//   //         object-fit         : cover;
+//   //         -webkit-filter     : brightness(1);
+//   //         transition-property: -webkit-filter;
+//   //         transition-duration: 0.6s
+//   //       }
+
+//   //       .text {
+//   //         opacity       : 0;
+//   //         position      : absolute;
+//   //         z-index       : 1;
+//   //         top           : 0;
+//   //         bottom        : 0;
+//   //         left          : 0;
+//   //         right         : 0;
+//   //         margin        : auto;
+//   //         text-align    : center;
+//   //         height        : 60px;
+//   //         font-size     : 30px;
+//   //         color         : white;
+//   //         line-height   : 60px;
+//   //         letter-spacing: 20px;
+//   //       }
+
+//   //       .border {
+//   //         opacity            : 0;
+//   //         position           : absolute;
+//   //         z-index            : 1;
+//   //         top                : 0;
+//   //         bottom             : 0;
+//   //         left               : 0;
+//   //         right              : 0;
+//   //         margin             : auto;
+//   //         width              : 70%;
+//   //         height             : 60%;
+//   //         border             : 1px solid white;
+//   //         transition-property: opacity;
+//   //         transition-duration: 0.6s
+//   //       }
+//   //     }
+
+//   //     .serveBlock:hover {
+//   //       .serveImg {
+//   //         -webkit-filter     : brightness(0.4);
+//   //         transition-property: -webkit-filter;
+//   //         transition-duration: 0.6s;
+//   //       }
+
+//   //       .text {
+//   //         opacity: 1;
+//   //       }
+
+//   //       .border {
+//   //         opacity            : 1;
+//   //         transition-property: opacity;
+//   //         transition-duration: 0.6s
+//   //       }
+//   //     }
+
+//   //     .intro {
+//   //       display        : flex;
+//   //       flex-direction : column;
+//   //       justify-content: center;
+//   //       cursor         : pointer;
+
+//   //       .title {
+//   //         width         : 100%;
+//   //         display       : flex;
+//   //         flex-direction: column;
+//   //         padding-bottom: 20px;
+//   //         border-bottom : 1px solid #ccc;
+//   //       }
+
+//   //       .sub-title {
+//   //         padding-top  : 20px;
+//   //         margin-bottom: 20px;
+//   //       }
+
+//   //       .block_link {
+//   //         display    : flex;
+//   //         align-items: center;
+//   //         color      : #243ca8;
+
+//   //         .line {
+//   //           width        : 60px;
+//   //           margin-left  : 10px;
+//   //           border-bottom: 1.5px solid #243ca8;
+//   //           transform    : scale(1, 1);
+//   //           transition   : all 0.2s ease-out;
+//   //         }
+//   //       }
+//   //     }
+//   //   }
+
+//   //   .block:hover {
+//   //     .block_link {
+//   //       .line {
+//   //         margin-left: 40px;
+//   //         transform  : scale(1.9, 1);
+//   //       }
+//   //     }
+//   //   }
+//   // }
+
+// }

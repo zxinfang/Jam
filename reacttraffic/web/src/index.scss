@@ -1,0 +1,26 @@
+@import "./mixin/margin.scss";
+@import "./mixin/padding.scss";
+@import "./mixin/layout.scss";
+@import "./mixin/size.scss";
+@import "./mixin/card.scss";
+@import "./mixin/custom-form.scss";
+
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin     : 0;
+  padding    : 0;
+  font-family: "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+}
+
+.hiddenText {
+  overflow     : hidden;
+  white-space  : nowrap;
+  text-overflow: ellipsis;
+}

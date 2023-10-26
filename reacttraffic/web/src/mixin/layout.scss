@@ -1,0 +1,18 @@
+.layout {
+  display       : flex;
+  flex          : auto;
+  flex-direction: column;
+
+  .header,
+  .page-header,
+  .footer {
+    flex: 0 0 auto;
+  }
+
+  .content {
+    flex          : auto;
+    flex-direction: row;
+  }
+
+
+}
