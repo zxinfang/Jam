@@ -11,7 +11,7 @@ from sklearn.model_selection import KFold
 
 # SVM模型訓練
 # 讀取訓練模型檔
-model_data = pd.read_csv(r'D:\研究鎖\28屆全國大賽\論文實驗\exp1\0626wekaJ48_data.csv')
+model_data = pd.read_csv(r'D:\研究鎖\28屆全國大賽\Jam\Jam\predict\0626wekaJ48_data.csv')
 print(model_data.head())
 
 X = model_data[['lanenu', 'incident_type', 'incident_type_note', 'machine', 'special_incident', 'weekend', 'time_state']]
@@ -33,7 +33,7 @@ print(f'模型的準確性：{accuracy:.2f}')
 
 
 # 分類模型訓練
-data = pd.read_csv(r'D:\研究鎖\28屆全國大賽\predict\pre_data_0601.csv')
+data = pd.read_csv(r'D:\研究鎖\28屆全國大賽\Jam\Jam\predict\pre_data_0601.csv')
 data = data[data['real_arrival_km']<=90]
 data = data[data['arrival_time']<=70]
 x = data[['real_arrival_km','arrival_time']]
@@ -69,7 +69,7 @@ def svm_predict():
     prediction = svm_classifier.predict(input_data.values)
     print(f'process_time_type：{prediction[0]}')
 
-    time_data = pd.read_csv(r'D:\研究鎖\28屆全國大賽\論文實驗\exp1\data_kmean_分群.csv')
+    time_data = pd.read_csv(r'D:\研究鎖\28屆全國大賽\Jam\Jam\predict\data_kmean_分群.csv')
     # 取得與預測類別相符的資料
     time_data = time_data[time_data['process_time_type'] == prediction[0]]
     # 加總預測時間
@@ -105,7 +105,7 @@ def gbrt_predict():
     label = input_data['type'].values[0]
 
     # gbrt 預測模型訓練
-    data = pd.read_csv(fr'D:\研究鎖\28屆全國大賽\論文實驗\exp2\kmean\pre_data_kmean_5群-{label+1}.csv')
+    data = pd.read_csv(fr'D:\研究鎖\28屆全國大賽\Jam\Jam\predict\pre_data_kmean_5群-{label+1}.csv')
     # data = data[data['cluster']==3]
     X = data[['real_arrival_km', 'speed']]
     y = data[['arrival_time']]
