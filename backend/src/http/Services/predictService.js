@@ -74,8 +74,6 @@ class predictService {
         newId = `${moment().format('YYYYMM')}${(oldId + 1).toString().padStart(4, '0')}`
       }
 
-      console.log(newId);
-
       const svm_result = await predictRepository.getSVMPredict(lanenu, incident_type, incident_type_note, machine, special_incident, weekend, time_state);
       const gbrt_result = await predictRepository.getGBRTPredict(real_arrival_km, arrival_time, speed);
       const { process_time: svm_time } = svm_result;

@@ -66,8 +66,21 @@ class predictRepository {
     try {
       const sql = `
       SELECT
-        *
-      FROM "incident"."incident_predict"
+      	a.mission_id,
+      	b.describe AS incident_type,
+      	c.describe AS incident_type_note,
+      	d.describe AS lanenu,
+      	CASE WHEN a.special_incident = 0 THEN '否'
+      			 WHEN a.special_incident = 1 THEN '是'
+      	END AS special_incident,
+      	a."process_time(min)"
+      FROM "incident"."incident_predict" a
+      LEFT JOIN "incident"."incident_type" b 
+      	ON a.incident_type = b.id
+      LEFT JOIN "incident"."incident_type_note" c
+      	ON a.incident_type_note =c.id
+      LEFT JOIN "incident"."lanenu" d
+      	ON a.lanenu = d.id	
       ORDER BY mission_id DESC
       `;
 
