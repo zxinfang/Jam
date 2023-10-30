@@ -5,9 +5,14 @@ const api = {
   namespace: 'predict',
   routes: [
     {
-      RestFulMethod: 'get',
+      RestFulMethod: 'post',
       path: '/',
-      method: predictController.getPredictData,
+      method: predictController.postIncident,
+    },
+    {
+      RestFulMethod: 'get',
+      path: '/incident',
+      method: predictController.getIncident,
     }
   ],
 };

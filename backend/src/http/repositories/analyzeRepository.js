@@ -12,14 +12,14 @@ class analyzeRepository {
       	COUNT(a.count)
       	FROM (
       		SELECT 
-      			"時間",
-      			substring("時間",1,4) AS year,
-      			substring("時間",6,2) AS month,
-      			COUNT("任務編號")
+      			time,
+      			substring(time,1,4) AS year,
+      			substring(time,6,2) AS month,
+      			COUNT(mission_id)
       		FROM "incident"."incident_processing"
-      		WHERE "時間" BETWEEN $1 AND $2
-      			AND "國道"  = $3
-      		GROUP BY "任務編號","時間"
+      		WHERE time BETWEEN $1 AND $2
+      			AND highway  = $3
+      		GROUP BY mission_id,time
       	) a
       GROUP BY a.year,a.month,a.count
       ORDER BY a.year,a.month
@@ -36,13 +36,13 @@ class analyzeRepository {
       const data = [start_time, end_time, highway];
       const sql = `
       SELECT 
-      	"性質" AS incident_type,
-      	COUNT("性質")
+      	incident_type AS incident_type,
+      	COUNT(incident_type)
       FROM "incident"."incident_processing"
-      WHERE "性質" IN ('散落物','事故','故障車','誤闖','車輛停等','翻牌面','道路施工','煙霧','火災','巡邏查看','支援','其他')
-      	AND "時間" BETWEEN $1 AND $2
-        AND "國道"  = $3
-      GROUP BY "性質"
+      WHERE incident_type IN ('散落物','事故','故障車','誤闖','車輛停等','翻牌面','道路施工','煙霧','火災','巡邏查看','支援','其他')
+      	AND time BETWEEN $1 AND $2
+        AND highway  = $3
+      GROUP BY incident_type
       `;
 
       return await dbWrapper.queryResult(sql, data);

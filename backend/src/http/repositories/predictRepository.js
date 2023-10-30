@@ -16,6 +16,7 @@ class predictRepository {
       }
 
       const { data: result } = await axios.post('http://localhost:5000/predict/svm', inputData);
+      console.log(result);
       return result;
     } catch (err) {
       return err.message;
@@ -37,6 +38,7 @@ class predictRepository {
         type: data.type
       }
       const { data: result } = await axios.post('http://localhost:5000/predict/gbrt', predict_data);
+      console.log(result);
 
       return result;
     } catch (err) {
@@ -44,6 +46,50 @@ class predictRepository {
     }
   }
 
+  getNewId = async () => {
+    try {
+      const sql = `
+        SELECT
+          mission_id
+        FROM "incident"."incident_predict"
+        ORDER BY mission_id DESC
+        LIMIT 1
+      `;
+
+      return await dbWrapper.queryResult(sql, null);
+    } catch (err) {
+      return err.message;
+    }
+  };
+
+  getIncident = async () => {
+    try {
+      const sql = `
+      SELECT
+        *
+      FROM "incident"."incident_predict"
+      ORDER BY mission_id DESC
+      `;
+
+      return await dbWrapper.queryResult(sql, null);
+    } catch (err) {
+      return err.message;
+    }
+  }
+
+  postIncident = async (newId, incident_type, incident_type_note, lanenu, special_incident, predict_time) => {
+    try {
+      const data = [newId, incident_type, incident_type_note, lanenu, special_incident, predict_time];
+      const sql = `
+      INSERT INTO "incident"."incident_predict"(mission_id,incident_type,incident_type_note,lanenu,special_incident,"process_time(min)")
+      VALUES($1,$2,$3,$4,$5,$6)
+      `;
+
+      return await dbWrapper.queryResult(sql, data);
+    } catch (err) {
+      return err.message;
+    }
+  };
 
 }
 
