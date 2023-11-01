@@ -13,6 +13,11 @@ const api = {
       RestFulMethod: 'get',
       path: '/incident',
       method: predictController.getIncident,
+    },
+    {
+      RestFulMethod: 'post',
+      path: '/incident/update',
+      method: predictController.updateIncident,
     }
   ],
 };

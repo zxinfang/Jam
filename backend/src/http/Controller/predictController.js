@@ -10,16 +10,37 @@ class predictController {
   };
 
   postIncident = async (req, res) => {
-    const bodeKey = ['lanenu', 'incident_type', 'incident_type_note', 'machine', 'special_incident', 'weekend', 'time_state', 'real_arrival_km', 'arrival_time', 'speed'];
+    const bodeKey = ['incident_type', 'incident_type_note', 'lanenu', 'special_incident', 'work_section',
+      'highway', 'direction', 'section', 'keep_dispatch', 'status', 'remark', 'weekend', 'time_state',
+      'real_arrival_km', 'arrival_time', 'speed', 'machine',
+    ];
 
     if (!checkedValidationUtil.keyChecked(bodeKey, req.body))
       return formatResponseUtil.keyErrorResponse(res, '欄位格式有誤，請檢查');
 
-    const { lanenu, incident_type, incident_type_note, machine, special_incident, weekend, time_state, real_arrival_km, arrival_time, speed } = req.body;
-    const response = await predictService.postIncident(lanenu, incident_type, incident_type_note, machine, special_incident, weekend, time_state, real_arrival_km, arrival_time, speed);
+    const { incident_type, incident_type_note, lanenu, special_incident, work_section,
+      highway, direction, section, keep_dispatch, status, remark, weekend, time_state,
+      real_arrival_km, arrival_time, speed, machine } = req.body;
+
+    const response = await predictService.postIncident(incident_type, incident_type_note, lanenu, special_incident, work_section,
+      highway, direction, section, keep_dispatch, status, remark, weekend, time_state,
+      real_arrival_km, arrival_time, speed, machine);
 
     return formatResponseUtil.formatResponse(res, response);
-  }
+  };
+
+  updateIncident = async (req, res) => {
+    const bodeKey = ['mission_id', 'status', 'remark', 'real_clean_time', 'real_respond_time'];
+
+    if (!checkedValidationUtil.keyChecked(bodeKey, req.body))
+      return formatResponseUtil.keyErrorResponse(res, '欄位格式有誤，請檢查');
+
+    const { mission_id, status, remark, real_clean_time, real_respond_time } = req.body;
+
+    const response = await predictService.updateIncident(mission_id, status, remark, real_clean_time, real_respond_time);
+
+    return formatResponseUtil.formatResponse(res, response);
+  };
 }
 
 export default new predictController();

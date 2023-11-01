@@ -61,7 +61,9 @@ class predictService {
     }
   }
 
-  postIncident = async (lanenu, incident_type, incident_type_note, machine, special_incident, weekend, time_state, real_arrival_km, arrival_time, speed) => {
+  postIncident = async (incident_type, incident_type_note, lanenu, special_incident, work_section,
+    highway, direction, section, keep_dispatch, status, remark, weekend, time_state,
+    real_arrival_km, arrival_time, speed, machine) => {
     try {
       let missionid = await predictRepository.getNewId();
       let newId;
@@ -80,12 +82,41 @@ class predictService {
       const { process_time: gbrt_time } = gbrt_result;
       const predict_time = svm_time + gbrt_time;
 
-      const result = await predictRepository.postIncident(newId, incident_type, incident_type_note, lanenu, special_incident, predict_time);
+      const result = await predictRepository.postIncident(newId, incident_type, incident_type_note, lanenu, special_incident, predict_time, work_section,
+        highway, direction, section, keep_dispatch, status, remark);
 
       const process_time = {
         process_time: svm_time + gbrt_time
       }
       result.push(process_time);
+
+      if (!result) {
+        return {
+          status: 404,
+          data: null,
+        };
+      } else if (typeof result === 'string') {
+        return {
+          status: 500,
+          message: result,
+        };
+      } else if (typeof result === 'object') {
+        return {
+          status: 200,
+          data: result,
+        };
+      }
+    } catch (err) {
+      return {
+        status: 500,
+        message: err.message,
+      };
+    }
+  };
+
+  updateIncident = async (mission_id, status, remark, real_clean_time, real_respond_time) => {
+    try {
+      const result = await predictRepository.updateIncident(mission_id, status, remark, real_clean_time, real_respond_time);
 
       if (!result) {
         return {
