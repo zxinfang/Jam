@@ -8,6 +8,11 @@ const api = {
       RestFulMethod: 'post',
       path: '/',
       method: historyController.getHistory,
+    },
+    {
+      RestFulMethod: 'get',
+      path: '/special',
+      method: historyController.getSpecialIncident,
     }
   ],
 };

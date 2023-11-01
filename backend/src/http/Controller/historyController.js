@@ -14,6 +14,12 @@ class historyController {
 
     return formatResponseUtil.formatResponse(res, response);
   };
+
+  getSpecialIncident = async (req, res) => {
+    const response = await historyService.getSpecialIncident();
+
+    return formatResponseUtil.formatResponse(res, response);
+  };
 }
 
 export default new historyController();
